@@ -4,7 +4,9 @@
     "project": "./tsconfig.json"
   },
   "rules": {
+    "@typescript-eslint/camelcase": "off",
     "@typescript-eslint/consistent-type-definitions": "off",
-    "@typescript-eslint/strict-boolean-expressions": "off"
+    "@typescript-eslint/strict-boolean-expressions": "off",
+    "space-before-function-paren": ["error", "never"]
   }
 }

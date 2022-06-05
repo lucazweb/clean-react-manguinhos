@@ -4,6 +4,9 @@
   "main": "index.js",
   "author": "Lucas Cardoso Santos <lucas.casantos@b2wdigital.com>",
   "license": "MIT",
+  "scripts": {
+    "test": "yarn jest"
+  },
   "devDependencies": {
     "@types/jest": "^28.1.1",
     "@types/node": "^17.0.39",
