@@ -5,7 +5,10 @@
   "author": "Lucas Cardoso Santos <lucas.casantos@b2wdigital.com>",
   "license": "MIT",
   "scripts": {
-    "test": "yarn jest"
+    "test": "jest --passWithNoTests",
+    "test: watch": "yarn test -- --watch",
+    "test:staged": "yarn test -- --findRelatedTests",
+    "test:ci": "yarn test -- --coverage"
   },
   "devDependencies": {
     "@types/jest": "^28.1.1",
