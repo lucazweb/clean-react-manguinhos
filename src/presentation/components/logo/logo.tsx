@@ -1,6 +1,8 @@
-import React from "react"
+import React, { memo } from "react"
 
-export const Logo = () => {
+type Props = React.HTMLAttributes<HTMLElement>
+
+const SignInHeader = (props: Props) => {
   return (
     <div>
       <img
@@ -14,3 +16,4 @@ export const Logo = () => {
     </div>
   )
 }
+export default memo(SignInHeader)
