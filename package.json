@@ -5,7 +5,7 @@
   "author": "Lucas Cardoso Santos <lucas.casantos@b2wdigital.com>",
   "license": "MIT",
   "scripts": {
-    "start": "webpack-dev-server --open",
+    "start": "webpack && webpack serve --static --open",
     "test": "jest --passWithNoTests --no-cache --runInBand",
     "test:watch": "yarn test -- --watch",
     "test:staged": "yarn test -- --findRelatedTests",
