@@ -2,8 +2,10 @@ import React from "react"
 import { render } from "@testing-library/react"
 import Login from "./login"
 
-describe("Name of the group", () => {
-  test("should ", () => {
-    render(<Login />)
+describe("Login Component", () => {
+  test("Should not render loader and error on start ", () => {
+    const { getByTestId } = render(<Login />)
+    const errorWrap = getByTestId("error-wrap")
+    expect(errorWrap.childElementCount).toBe(0)
   })
 })
