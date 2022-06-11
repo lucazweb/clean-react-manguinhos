@@ -47,7 +47,9 @@ export const SignInForm = () => {
       </div>
 
       <div>
-        <Button type="submit">Login</Button>
+        <Button data-testid="submit" disabled type="submit">
+          Login
+        </Button>
       </div>
     </form>
   )
