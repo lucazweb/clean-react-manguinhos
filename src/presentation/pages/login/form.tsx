@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { Input, Button, Label, FormStatus } from "@/presentation/components"
 import { InputWrapper } from "./styled"
 
@@ -28,7 +28,7 @@ export const SignInForm = () => {
           />
         </div>
       </InputWrapper>
-      <FormStatus isLoading={false} />
+      <FormStatus />
 
       <div className="flex items-center justify-between">
         <div className="flex items-center">
