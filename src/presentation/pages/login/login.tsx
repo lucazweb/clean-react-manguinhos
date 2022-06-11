@@ -12,6 +12,7 @@ export default function Login({ validation }: Props) {
   const [state, setState] = useState({
     isLoading: false,
     email: "",
+    password: "",
   })
 
   const [errorState] = useState({
@@ -25,6 +26,12 @@ export default function Login({ validation }: Props) {
       email: state.email,
     })
   }, [state.email])
+
+  useEffect(() => {
+    validation.validate({
+      password: state.email,
+    })
+  }, [state.password])
 
   return (
     <div className="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
