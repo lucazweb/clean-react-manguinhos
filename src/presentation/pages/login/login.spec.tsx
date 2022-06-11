@@ -9,5 +9,11 @@ describe("Login Component", () => {
     expect(errorWrap.childElementCount).toBe(0)
     const submitButton = getByTestId("submit") as HTMLButtonElement // this cast allow get button props and not getByTestId return
     expect(submitButton.disabled).toBe(true)
+
+    const emailStatus = getByTestId("email-status")
+    expect(emailStatus.title).toBe("Campo obrigatório")
+
+    const passwordStatus = getByTestId("password-status")
+    expect(passwordStatus.title).toBe("Campo obrigatório")
   })
 })
