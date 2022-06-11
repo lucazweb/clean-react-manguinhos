@@ -15,10 +15,17 @@ export interface InputProps
 }
 
 export const Input = (props: InputProps) => {
-  const { errorState } = useContext(Context)
+  const { state, setState, errorState } = useContext(Context)
   const error = errorState[props.name]
 
   const { isCheckbox, hideErrorMessages, ...restProps } = props
+
+  const handleState = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    setState({
+      ...state,
+      [e.target.name]: e.target.value,
+    })
+  }
 
   return (
     <React.Fragment>
@@ -26,6 +33,9 @@ export const Input = (props: InputProps) => {
         {...restProps}
         className={isCheckbox ? checkboxStyles : handleInputStyles(error)}
         type={isCheckbox ? "checkbox" : "text"}
+        data-testid={props.name}
+        onChange={handleState}
+        value={state[props.name]}
       />
       {!isCheckbox && (
         <p
