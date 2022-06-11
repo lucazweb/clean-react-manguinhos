@@ -6,24 +6,11 @@ import {
   fireEvent,
 } from "@testing-library/react"
 import Login from "./login"
-import { Validation } from "@/presentation/protocols/validation"
-import { StringColorFormat } from "@faker-js/faker"
+import { ValidationSpy } from "@/presentation/test/mock-validation"
 
 type SutTypes = {
   sut: RenderResult
   validationSpy: ValidationSpy
-}
-
-class ValidationSpy implements Validation {
-  errorMessage: string
-  fieldName: string
-  fieldValue: string
-
-  validate(fieldName: string, fieldValue: string): string {
-    this.fieldName = fieldName
-    this.fieldValue = fieldValue
-    return this.errorMessage
-  }
 }
 
 const makeSut = (): SutTypes => {
@@ -36,6 +23,7 @@ const makeSut = (): SutTypes => {
 }
 
 describe("Login Component", () => {
+  afterEach(cleanup)
   test("Should start with initial state ", () => {
     const { sut } = makeSut()
     const errorWrap = sut.getByTestId("error-wrap")
