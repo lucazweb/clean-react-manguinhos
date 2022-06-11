@@ -48,8 +48,12 @@ module.exports = {
     ],
   },
   devServer: {
-    static: "./public",
-    // writeToDisk: true,
+    static: {
+      directory: "./public",
+    },
+    devMiddleware: {
+      writeToDisk: true,
+    },
     historyApiFallback: true,
     liveReload: true,
   },
