@@ -22,15 +22,11 @@ export default function Login({ validation }: Props) {
   })
 
   useEffect(() => {
-    validation.validate({
-      email: state.email,
-    })
+    validation.validate("email", state.email)
   }, [state.email])
 
   useEffect(() => {
-    validation.validate({
-      password: state.email,
-    })
+    validation.validate("password", state.password)
   }, [state.password])
 
   return (
