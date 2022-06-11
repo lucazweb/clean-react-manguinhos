@@ -15,6 +15,7 @@ export const SignInForm = () => {
             type="email"
             autoComplete="off"
             placeholder="Insira o seu E-mail"
+            hideErrorMessages
           />
         </div>
         <div>
@@ -25,6 +26,7 @@ export const SignInForm = () => {
             type="password"
             autoComplete="current-password"
             placeholder="Senha"
+            hideErrorMessages
           />
         </div>
       </InputWrapper>
@@ -32,7 +34,7 @@ export const SignInForm = () => {
 
       <div className="flex items-center justify-between">
         <div className="flex items-center">
-          <Input id="remember-me" name="remember-me" isCheckbox className="" />
+          <Input id="remember-me" name="remember-me" className="" isCheckbox />
           <Label>Lembrar de mim</Label>
         </div>
 

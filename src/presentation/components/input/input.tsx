@@ -1,4 +1,6 @@
-import React from "react"
+import React, { useContext } from "react"
+import Context from "@/presentation/contexts/form/form-context"
+import { checkboxStyles, handleInputStyles } from "./styles"
 
 export interface InputProps
   extends Pick<
@@ -9,20 +11,33 @@ export interface InputProps
     "id" | "name" | "type" | "autoComplete" | "className" | "placeholder"
   > {
   isCheckbox?: boolean
+  hideErrorMessages?: boolean
 }
 
-const inputTWClasses =
-  "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-
-const checkboxTwClasses =
-  "h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
-
 export const Input = (props: InputProps) => {
+  const { errorState } = useContext(Context)
+  const error = errorState[props.name]
+
+  const { isCheckbox, hideErrorMessages, ...restProps } = props
+
   return (
-    <input
-      {...props}
-      className={props.isCheckbox ? checkboxTwClasses : inputTWClasses}
-      type={props.isCheckbox ? "checkbox" : "text"}
-    />
+    <React.Fragment>
+      <input
+        {...restProps}
+        className={isCheckbox ? checkboxStyles : handleInputStyles(error)}
+        type={isCheckbox ? "checkbox" : "text"}
+      />
+      {!isCheckbox && (
+        <p
+          title={error}
+          data-testid={`${props.name}-status`}
+          className={`text-red-500 text-xs italic ${
+            hideErrorMessages && "hidden"
+          }`}
+        >
+          {error}
+        </p>
+      )}
+    </React.Fragment>
   )
 }

@@ -3,11 +3,12 @@ import { ErrorDisplay, Wrapper } from "./styled"
 import Context from "@/presentation/contexts/form/form-context"
 
 export const FormStatus = () => {
-  const { isLoading, errorMessage } = useContext(Context)
+  const { state, errorState } = useContext(Context)
+
   return (
     <Wrapper data-testid="error-wrap">
-      {errorMessage && <ErrorDisplay> {errorMessage}</ErrorDisplay>}
-      {isLoading && <span>Loading..</span>}
+      {errorState.main && <ErrorDisplay> {errorState.main}</ErrorDisplay>}
+      {state.isLoading && <span>Loading..</span>}
     </Wrapper>
   )
 }
