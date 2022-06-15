@@ -3,11 +3,20 @@ import { Input, Button, Label, FormStatus } from "@/presentation/components"
 import { InputWrapper } from "./styled"
 import Context from "@/presentation/contexts/form/form-context"
 
-export const SignInForm = () => {
+type SignInFormProps = {
+  handleSubmit: (event: React.FormEvent<HTMLFormElement>) => void
+}
+
+export const SignInForm = (props: SignInFormProps) => {
   const { state } = useContext(Context)
 
   return (
-    <form className="mt-8 space-y-6" action="#" method="POST">
+    <form
+      className="mt-8 space-y-6"
+      action="#"
+      method="POST"
+      onSubmit={props.handleSubmit}
+    >
       <input type="hidden" name="remember" value="true" />
       <InputWrapper>
         <div>

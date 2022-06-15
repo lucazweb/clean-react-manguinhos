@@ -26,12 +26,20 @@ export default function Login({ validation }: Props) {
     })
   }, [state.email, state.password])
 
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
+    event.preventDefault()
+    setState({
+      ...state,
+      isLoading: true,
+    })
+  }
+
   return (
     <div className="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
         <SignInHeader />
         <Context.Provider value={{ state, setState }}>
-          <SignInForm />
+          <SignInForm handleSubmit={handleSubmit} />
         </Context.Provider>
       </div>
     </div>
