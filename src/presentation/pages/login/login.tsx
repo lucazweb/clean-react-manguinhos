@@ -3,12 +3,14 @@ import { SignInHeader } from "@/presentation/components"
 import { SignInForm } from "./form"
 import Context from "@/presentation/contexts/form/form-context"
 import { Validation } from "@/presentation/protocols/validation"
+import { Authentication } from "@/domain/usecases"
 
 type Props = {
   validation: Validation
+  authentication: Authentication
 }
 
-export default function Login({ validation }: Props) {
+export default function Login({ validation, authentication }: Props) {
   const [state, setState] = useState({
     isLoading: false,
     email: "",
@@ -26,12 +28,15 @@ export default function Login({ validation }: Props) {
     })
   }, [state.email, state.password])
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
+  const handleSubmit = async (
+    event: React.FormEvent<HTMLFormElement>
+  ): Promise<void> => {
     event.preventDefault()
     setState({
       ...state,
       isLoading: true,
     })
+    await authentication.auth({ email: state.email, password: state.password })
   }
 
   return (
