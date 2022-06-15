@@ -100,7 +100,7 @@ describe("Login Component", () => {
     expect(submitButton.disabled).toBe(false)
   })
 
-  test("Should show loading on submit ", () => {
+  test("Should show loader on submit ", () => {
     const { sut } = makeSut()
     const emailInput = sut.getByTestId("email")
     fireEvent.input(emailInput, {
