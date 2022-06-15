@@ -1,8 +1,11 @@
-import React, { useState } from "react"
+import React, { useContext } from "react"
 import { Input, Button, Label, FormStatus } from "@/presentation/components"
 import { InputWrapper } from "./styled"
+import Context from "@/presentation/contexts/form/form-context"
 
 export const SignInForm = () => {
+  const { state } = useContext(Context)
+
   return (
     <form className="mt-8 space-y-6" action="#" method="POST">
       <input type="hidden" name="remember" value="true" />
@@ -49,7 +52,11 @@ export const SignInForm = () => {
       </div>
 
       <div>
-        <Button data-testid="submit" disabled type="submit">
+        <Button
+          data-testid="submit"
+          disabled={!!state.emailError || !!state.passwordError}
+          type="submit"
+        >
           Login
         </Button>
       </div>
