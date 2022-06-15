@@ -13,16 +13,16 @@ export default function Login({ validation }: Props) {
     isLoading: false,
     email: "",
     password: "",
-  })
-
-  const [errorState] = useState({
-    email: "Campo obrigatório",
-    password: "Campo obrigatório",
-    main: "",
+    emailError: "",
+    passwordError: "Campo obrigatório",
+    mainError: "",
   })
 
   useEffect(() => {
-    validation.validate("email", state.email)
+    setState({
+      ...state,
+      emailError: validation.validate("email", state.email),
+    })
   }, [state.email])
 
   useEffect(() => {
@@ -33,7 +33,7 @@ export default function Login({ validation }: Props) {
     <div className="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
         <SignInHeader />
-        <Context.Provider value={{ state, setState, errorState }}>
+        <Context.Provider value={{ state, setState }}>
           <SignInForm />
         </Context.Provider>
       </div>

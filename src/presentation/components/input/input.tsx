@@ -15,8 +15,8 @@ export interface InputProps
 }
 
 export const Input = (props: InputProps) => {
-  const { state, setState, errorState } = useContext(Context)
-  const error = errorState[props.name]
+  const { state, setState } = useContext(Context)
+  const error = state[`${props.name}Error`]
 
   const { isCheckbox, hideErrorMessages, ...restProps } = props
 
