@@ -99,4 +99,20 @@ describe("Login Component", () => {
     const submitButton = sut.getByTestId("submit") as HTMLButtonElement // this cast allow get button props and not getByTestId return
     expect(submitButton.disabled).toBe(false)
   })
+
+  test("Should show loading on submit ", () => {
+    const { sut } = makeSut()
+    const emailInput = sut.getByTestId("email")
+    fireEvent.input(emailInput, {
+      target: { value: faker.internet.email() },
+    })
+    const passwordInput = sut.getByTestId("password")
+    fireEvent.input(passwordInput, {
+      target: { value: faker.internet.password() },
+    })
+    const submitButton = sut.getByTestId("submit")
+    fireEvent.click(submitButton)
+    const loader = sut.getByTestId("loader")
+    expect(loader).toBeTruthy()
+  })
 })
