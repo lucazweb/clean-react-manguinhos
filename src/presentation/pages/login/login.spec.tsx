@@ -1,4 +1,6 @@
 import React from "react"
+import { Router } from "react-router-dom"
+import { createMemoryHistory } from "history"
 import {
   render,
   RenderResult,
@@ -21,12 +23,16 @@ type SutParams = {
   validationError: string
 }
 
+const history = createMemoryHistory()
+
 const makeSut = (params?: SutParams): SutTypes => {
   const validationStub = new ValidationStub()
   const authenticationSpy = new AuthenticationSpy()
   validationStub.errorMessage = params?.validationError
   const sut = render(
-    <Login validation={validationStub} authentication={authenticationSpy} />
+    <Router history={history}>
+      <Login validation={validationStub} authentication={authenticationSpy} />
+    </Router>
   )
   return {
     sut,
@@ -78,7 +84,6 @@ describe("Login Component", () => {
   beforeEach(() => {
     localStorage.clear()
   })
-
 
   test("Should start with initial state ", () => {
     const validationError = faker.random.words()
@@ -170,7 +175,7 @@ describe("Login Component", () => {
     expect(errorWrap.childElementCount).toBe(1)
   })
 
-  test("Should add accessToken to localstorage on sucess ", async () => {
+  test("Should add accessToken to localstorage on success ", async () => {
     const { sut, authenticationSpy } = makeSut()
     simulateValidSubmit(sut)
     await waitFor(() => sut.getByTestId("form"))
@@ -178,5 +183,13 @@ describe("Login Component", () => {
       "accessToken",
       authenticationSpy.account.accessToken
     )
+  })
+
+  test("Should go to signup page", async () => {
+    const { sut } = makeSut()
+    const register = sut.getByTestId("signup")
+    fireEvent.click(register)
+    expect(history.length).toBe(2)
+    expect(history.location.pathname).toBe("/signup")
   })
 })
