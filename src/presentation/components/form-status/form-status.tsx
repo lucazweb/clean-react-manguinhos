@@ -7,7 +7,9 @@ export const FormStatus = () => {
 
   return (
     <Wrapper data-testid="error-wrap">
-      {state.mainError && <ErrorDisplay> {state.mainError}</ErrorDisplay>}
+      {state.mainError && (
+        <ErrorDisplay data-testid="main-error">{state.mainError}</ErrorDisplay>
+      )}
       {state.isLoading && <span data-testid="loader">Loading..</span>}
     </Wrapper>
   )
