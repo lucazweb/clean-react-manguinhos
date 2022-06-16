@@ -12,6 +12,7 @@ export const SignInForm = (props: SignInFormProps) => {
 
   return (
     <form
+      data-testid="form"
       className="mt-8 space-y-6"
       action="#"
       method="POST"
