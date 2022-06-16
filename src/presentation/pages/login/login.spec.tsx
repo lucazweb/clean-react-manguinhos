@@ -81,10 +81,6 @@ describe("Login Component", () => {
     const submitButton = sut.getByTestId("submit") as HTMLButtonElement // this cast allow get button props and not getByTestId return
     expect(submitButton.disabled).toBe(true)
     simulateStatusForField(sut, "email", validationError)
-    // const emailStatus = sut.getByTestId("email-status")
-    // expect(emailStatus.title).toBe(validationError)
-    // const passwordStatus = sut.getByTestId("password-status")
-    // expect(passwordStatus.title).toBe(validationError)
     simulateStatusForField(sut, "password", validationError)
   })
 
