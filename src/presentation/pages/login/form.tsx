@@ -1,4 +1,5 @@
 import React, { useContext } from "react"
+import { Link } from "react-router-dom"
 import { Input, Button, Label, FormStatus } from "@/presentation/components"
 import { InputWrapper } from "./styled"
 import Context from "@/presentation/contexts/form/form-context"
@@ -49,6 +50,15 @@ export const SignInForm = (props: SignInFormProps) => {
         <div className="flex items-center">
           <Input id="remember-me" name="remember-me" className="" isCheckbox />
           <Label>Lembrar de mim</Label>
+        </div>
+        <div className="text-sm">
+          <Link
+            data-testid="signup"
+            to="/signup"
+            className="font-medium text-indigo-600 hover:text-indigo-500"
+          >
+            Criar conta
+          </Link>
         </div>
 
         <div className="text-sm">
