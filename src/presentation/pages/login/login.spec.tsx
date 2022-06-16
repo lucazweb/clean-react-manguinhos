@@ -100,7 +100,6 @@ describe("Login Component", () => {
 
   test("Should show valid email state if validation succeeds ", () => {
     const { sut } = makeSut()
-    const emailInput = sut.getByTestId("email")
     populateEmailField(sut)
     simulateStatusForField(sut, "email")
   })
@@ -142,5 +141,13 @@ describe("Login Component", () => {
     simulateValidSubmit(sut)
     simulateValidSubmit(sut)
     expect(authenticationSpy.callsCount).toBe(1)
+  })
+
+  test("Should not call Authentication if form is invalid ", () => {
+    const validationError = faker.random.words()
+    const { sut, authenticationSpy } = makeSut({ validationError })
+    populateEmailField(sut)
+    fireEvent.submit(sut.getByTestId("form"))
+    expect(authenticationSpy.callsCount).toBe(0)
   })
 })
