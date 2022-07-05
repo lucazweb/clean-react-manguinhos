@@ -5,6 +5,6 @@ export const mockPostRequest = (): HttpPostParams<any> => ({
   url: faker.internet.url(),
   body: {
     name: "Obi Wan",
-    role: "Jedi Master",
-  },
+    role: "Jedi Master"
+  }
 })

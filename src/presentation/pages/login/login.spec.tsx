@@ -6,7 +6,7 @@ import {
   RenderResult,
   cleanup,
   fireEvent,
-  waitFor,
+  waitFor
 } from "@testing-library/react"
 import Login from "./login"
 import { AuthenticationSpy, ValidationStub } from "@/presentation/test"
@@ -24,7 +24,7 @@ type SutParams = {
 }
 
 const history = createMemoryHistory({
-  initialEntries: ["/login"],
+  initialEntries: ["/login"]
 })
 
 const makeSut = (params?: SutParams): SutTypes => {
@@ -38,7 +38,7 @@ const makeSut = (params?: SutParams): SutTypes => {
   )
   return {
     sut,
-    authenticationSpy,
+    authenticationSpy
   }
 }
 
@@ -71,7 +71,7 @@ const populatePasswordField = (
 ): void => {
   const passwordInput = sut.getByTestId("password")
   fireEvent.input(passwordInput, {
-    target: { value: password },
+    target: { value: password }
   })
 }
 
@@ -174,7 +174,7 @@ describe("Login Component", () => {
     await simulateValidSubmit(sut, email, password)
     expect(authenticationSpy.params).toEqual({
       email,
-      password,
+      password
     })
   })
 

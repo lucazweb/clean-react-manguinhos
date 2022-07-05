@@ -2,11 +2,11 @@ import React, { ReactNode } from "react"
 
 interface Props
   extends Pick<
-    React.DetailedHTMLProps<
-      React.ButtonHTMLAttributes<HTMLButtonElement>,
-      HTMLButtonElement
-    >,
-    "name" | "type" | "disabled"
+  React.DetailedHTMLProps<
+  React.ButtonHTMLAttributes<HTMLButtonElement>,
+  HTMLButtonElement
+  >,
+  "name" | "type" | "disabled"
   > {
   children?: ReactNode
 }

@@ -3,31 +3,31 @@ import { RequiredFieldValidation } from "@/validation/validators/required-filed/
 import { EmailValidation, MinLengthValidation } from "../validators"
 
 export class ValidationBuilder {
-  private constructor(
+  private constructor (
     private readonly fieldName: string,
     private readonly validations: FieldValidation[]
   ) {}
 
-  static field(fieldName: string): ValidationBuilder {
+  static field (fieldName: string): ValidationBuilder {
     return new ValidationBuilder(fieldName, [])
   }
 
-  required(): ValidationBuilder {
+  required (): ValidationBuilder {
     this.validations.push(new RequiredFieldValidation(this.fieldName))
     return this
   }
 
-  email(): ValidationBuilder {
+  email (): ValidationBuilder {
     this.validations.push(new EmailValidation(this.fieldName))
     return this
   }
 
-  min(length: number): ValidationBuilder {
+  min (length: number): ValidationBuilder {
     this.validations.push(new MinLengthValidation(this.fieldName, length))
     return this
   }
 
-  build(): FieldValidation[] {
+  build (): FieldValidation[] {
     return this.validations
   }
 }

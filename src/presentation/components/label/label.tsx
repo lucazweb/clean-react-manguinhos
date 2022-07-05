@@ -2,8 +2,8 @@ import React, { ReactNode } from "react"
 
 export interface LabelProps
   extends React.DetailedHTMLProps<
-    React.LabelHTMLAttributes<HTMLLabelElement>,
-    HTMLLabelElement
+  React.LabelHTMLAttributes<HTMLLabelElement>,
+  HTMLLabelElement
   > {
   children?: ReactNode
   hidden?: boolean

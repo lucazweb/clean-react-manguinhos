@@ -4,11 +4,11 @@ import { checkboxStyles, handleInputStyles } from "./styles"
 
 export interface InputProps
   extends Pick<
-    React.DetailedHTMLProps<
-      React.InputHTMLAttributes<HTMLInputElement>,
-      HTMLInputElement
-    >,
-    "id" | "name" | "type" | "autoComplete" | "className" | "placeholder"
+  React.DetailedHTMLProps<
+  React.InputHTMLAttributes<HTMLInputElement>,
+  HTMLInputElement
+  >,
+  "id" | "name" | "type" | "autoComplete" | "className" | "placeholder"
   > {
   isCheckbox?: boolean
   hideErrorMessages?: boolean
@@ -23,7 +23,7 @@ export const Input = (props: InputProps) => {
   const handleState = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setState({
       ...state,
-      [e.target.name]: e.target.value,
+      [e.target.name]: e.target.value
     })
   }
 

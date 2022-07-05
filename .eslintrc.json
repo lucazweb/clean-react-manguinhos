@@ -13,9 +13,14 @@
     "@typescript-eslint/camelcase": "off",
     "@typescript-eslint/consistent-type-definitions": "off",
     "@typescript-eslint/strict-boolean-expressions": "off",
-    "space-before-function-paren": ["error", "never"],
-    "quotes": [2, "single", "avoidEscape"],
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "space-before-function-paren": "off",
+    "quotes": [2, "double"],
+    "@typescript-eslint/quotes": "off",
     "react/jsx-uses-react": "error",
-    "react/jsx-uses-varas": "error" 
+    "react/jsx-uses-varas": "off",
+    "comma-dangle": "off",
+    "react/no-unescaped-entities": "off"
+
   }
 }

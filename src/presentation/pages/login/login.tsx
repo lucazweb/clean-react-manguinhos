@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import { Link, useHistory } from "react-router-dom"
+import { useHistory } from "react-router-dom"
 import { SignInHeader } from "@/presentation/components"
 import { SignInForm } from "./form"
 import Context from "@/presentation/contexts/form/form-context"
@@ -11,7 +11,7 @@ type Props = {
   authentication: Authentication
 }
 
-export default function Login({ validation, authentication }: Props) {
+export default function Login ({ validation, authentication }: Props) {
   const history = useHistory()
   const [state, setState] = useState({
     isLoading: false,

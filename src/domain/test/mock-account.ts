@@ -4,9 +4,9 @@ import { faker } from "@faker-js/faker"
 
 export const mockAuthentication = (): AuthenticationParams => ({
   email: faker.internet.email(),
-  password: faker.internet.password(),
+  password: faker.internet.password()
 })
 
 export const mockAccountModel = (): AccountModel => ({
-  accessToken: faker.datatype.string(),
+  accessToken: faker.datatype.string()
 })
