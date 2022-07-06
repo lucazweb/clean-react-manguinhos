@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react"
-import { useHistory } from "react-router-dom"
-import { SignInHeader } from "@/presentation/components"
-import { SignInForm } from "./form"
-import Context from "@/presentation/contexts/form/form-context"
-import { Validation } from "@/presentation/protocols/validation"
-import { Authentication } from "@/domain/usecases"
+import React, { useState, useEffect } from 'react'
+import { useHistory } from 'react-router-dom'
+import { SignInHeader } from '@/presentation/components'
+import { SignInForm } from './form'
+import Context from '@/presentation/contexts/form/form-context'
+import { Validation } from '@/presentation/protocols/validation'
+import { Authentication } from '@/domain/usecases'
 
 type Props = {
   validation: Validation
@@ -15,18 +15,18 @@ export default function Login ({ validation, authentication }: Props) {
   const history = useHistory()
   const [state, setState] = useState({
     isLoading: false,
-    email: "",
-    password: "",
-    emailError: "",
-    passwordError: "",
-    mainError: "",
+    email: '',
+    password: '',
+    emailError: '',
+    passwordError: '',
+    mainError: '',
   })
 
   useEffect(() => {
     setState({
       ...state,
-      emailError: validation.validate("email", state.email),
-      passwordError: validation.validate("password", state.password),
+      emailError: validation.validate('email', state.email),
+      passwordError: validation.validate('password', state.password),
     })
   }, [state.email, state.password])
 
@@ -46,8 +46,8 @@ export default function Login ({ validation, authentication }: Props) {
         email: state.email,
         password: state.password,
       })
-      localStorage.setItem("accessToken", account.accessToken)
-      history.replace("/")
+      localStorage.setItem('accessToken', account.accessToken)
+      history.replace('/')
     } catch (error) {
       setState({
         ...state,

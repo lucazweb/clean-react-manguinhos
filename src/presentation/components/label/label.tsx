@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react"
+import React, { ReactNode } from 'react'
 
 export interface LabelProps
   extends React.DetailedHTMLProps<
@@ -9,8 +9,8 @@ export interface LabelProps
   hidden?: boolean
 }
 
-export const labelTwStyles = "ml-2 block text-sm text-gray-900"
-export const srOnlyStylesTw = "sr-only"
+export const labelTwStyles = 'ml-2 block text-sm text-gray-900'
+export const srOnlyStylesTw = 'sr-only'
 
 export const Label = (props: LabelProps) => {
   return (

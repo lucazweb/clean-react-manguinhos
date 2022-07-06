@@ -1,5 +1,5 @@
-import axios from "axios"
-import { faker } from "@faker-js/faker"
+import axios from 'axios'
+import { faker } from '@faker-js/faker'
 
 export const mockHttpResponse = (): any => ({
   data: { user: faker.name.firstName, role: faker.name.jobTitle() },

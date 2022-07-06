@@ -1,6 +1,6 @@
-import React, { useContext } from "react"
-import { ErrorDisplay, Wrapper } from "./styled"
-import Context from "@/presentation/contexts/form/form-context"
+import React, { useContext } from 'react'
+import { ErrorDisplay, Wrapper } from './styled'
+import Context from '@/presentation/contexts/form/form-context'
 
 export const FormStatus = () => {
   const { state } = useContext(Context)

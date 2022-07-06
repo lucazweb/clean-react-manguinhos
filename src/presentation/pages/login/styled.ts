@@ -1,5 +1,5 @@
-import styled from "styled-components"
+import styled from 'styled-components'
 
 export const InputWrapper = styled.div.attrs({
-  className: "rounded-md shadow-sm -space-y-px"
+  className: 'rounded-md shadow-sm -space-y-px'
 })``

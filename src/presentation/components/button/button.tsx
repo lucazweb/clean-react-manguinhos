@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react"
+import React, { ReactNode } from 'react'
 
 interface Props
   extends Pick<
@@ -6,7 +6,7 @@ interface Props
   React.ButtonHTMLAttributes<HTMLButtonElement>,
   HTMLButtonElement
   >,
-  "name" | "type" | "disabled"
+  'name' | 'type' | 'disabled'
   > {
   children?: ReactNode
 }
@@ -31,7 +31,7 @@ export const Button = (props: Props) => {
   focus:ring-2 
   focus:ring-offset-2 
   focus:ring-indigo-500
-  ${props.disabled && "opacity-50 bg-indigo-400 "}
+  ${props.disabled && 'opacity-50 bg-indigo-400 '}
 `
 
   return (

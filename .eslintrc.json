@@ -18,7 +18,7 @@
     "@typescript-eslint/quotes": "off",
     "@typescript-eslint/return-await": "off",
     "space-before-function-paren": "off",
-    "quotes": [2, "double"],
+    "quotes": [2, "single"],
     "react/jsx-uses-react": "error",
     "react/jsx-uses-varas": "off",
     "comma-dangle": "off",

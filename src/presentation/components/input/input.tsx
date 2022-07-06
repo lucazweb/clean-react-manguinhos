@@ -1,6 +1,6 @@
-import React, { useContext } from "react"
-import Context from "@/presentation/contexts/form/form-context"
-import { checkboxStyles, handleInputStyles } from "./styles"
+import React, { useContext } from 'react'
+import Context from '@/presentation/contexts/form/form-context'
+import { checkboxStyles, handleInputStyles } from './styles'
 
 export interface InputProps
   extends Pick<
@@ -8,7 +8,7 @@ export interface InputProps
   React.InputHTMLAttributes<HTMLInputElement>,
   HTMLInputElement
   >,
-  "id" | "name" | "type" | "autoComplete" | "className" | "placeholder"
+  'id' | 'name' | 'type' | 'autoComplete' | 'className' | 'placeholder'
   > {
   isCheckbox?: boolean
   hideErrorMessages?: boolean
@@ -16,7 +16,7 @@ export interface InputProps
 
 export const Input = (props: InputProps) => {
   const { state, setState } = useContext(Context)
-  const error = state[`${props.name}Error`] || "Tudo certo!"
+  const error = state[`${props.name}Error`] || 'Tudo certo!'
 
   const { isCheckbox, hideErrorMessages, ...restProps } = props
 
@@ -32,7 +32,7 @@ export const Input = (props: InputProps) => {
       <input
         {...restProps}
         className={isCheckbox ? checkboxStyles : handleInputStyles(error)}
-        type={isCheckbox ? "checkbox" : "text"}
+        type={isCheckbox ? 'checkbox' : 'text'}
         data-testid={props.name}
         onChange={handleState}
         value={state[props.name]}
@@ -42,7 +42,7 @@ export const Input = (props: InputProps) => {
           title={error}
           data-testid={`${props.name}-status`}
           className={`text-red-500 text-xs italic ${
-            hideErrorMessages && "hidden"
+            hideErrorMessages && 'hidden'
           }`}
         >
           {error}
