@@ -4,14 +4,19 @@ import { SignInHeader } from '@/presentation/components'
 import { SignInForm } from './form'
 import Context from '@/presentation/contexts/form/form-context'
 import { Validation } from '@/presentation/protocols/validation'
-import { Authentication } from '@/domain/usecases'
+import { Authentication, SaveAccessToken } from '@/domain/usecases'
 
 type Props = {
   validation: Validation
   authentication: Authentication
+  saveAccessToken: SaveAccessToken
 }
 
-export default function Login ({ validation, authentication }: Props) {
+export default function Login({
+  validation,
+  authentication,
+  saveAccessToken,
+}: Props) {
   const history = useHistory()
   const [state, setState] = useState({
     isLoading: false,
@@ -46,7 +51,7 @@ export default function Login ({ validation, authentication }: Props) {
         email: state.email,
         password: state.password,
       })
-      localStorage.setItem('accessToken', account.accessToken)
+      await saveAccessToken.save(account.accessToken)
       history.replace('/')
     } catch (error) {
       setState({

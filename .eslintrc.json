@@ -17,6 +17,7 @@
     "@typescript-eslint/no-misused-promises": "off",
     "@typescript-eslint/quotes": "off",
     "@typescript-eslint/return-await": "off",
+    "@typescript-eslint/space-before-function-paren": "off",
     "space-before-function-paren": "off",
     "quotes": [2, "single"],
     "react/jsx-uses-react": "error",
